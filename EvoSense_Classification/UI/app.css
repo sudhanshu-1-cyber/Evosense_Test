@@ -1,0 +1,9 @@
+
+.custom-circle-image img {
+    object-fit: cover; 
+}
+
+
+.navbar {
+    margin-bottom: 20px;
+}
