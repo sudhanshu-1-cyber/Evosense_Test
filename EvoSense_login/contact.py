@@ -13,7 +13,7 @@ class Contact:
         title_lbl=Label(self.root, text="Contact Infromation", font=("Times New Roman",35,"bold"),bg="black", fg="#74a7d2")
         title_lbl.place(x=0, y=0, width=1300, height=60)
 
-        img=Image.open(r"C:\Face_recog_system - Copy\bg.jpg")
+        img=Image.open(r"EvoSense_login\\assets\\img\\bg.jpg")
         img=img.resize((1300, 700), Image.ADAPTIVE) 
         self.photoimg=ImageTk.PhotoImage(img)
 

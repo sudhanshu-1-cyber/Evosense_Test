@@ -31,7 +31,7 @@ class Student:
         self.var_teacher=StringVar()
 
         # bg image
-        img=Image.open(r"C:\Face_recog_system - Copy\bg.jpg")
+        img=Image.open(r"EvoSense_login\\assets\\img\\bg.jpg")
         img=img.resize((1300, 700), Image.ADAPTIVE)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -49,7 +49,7 @@ class Student:
         Left_frame = LabelFrame(main_frame, bd=2, bg="white", relief=RIDGE, text="Student Details", font=("times new roman", 13, "bold"))
         Left_frame.place(x=10, y=10, width=600, height=580)
 
-        img_left=Image.open(r"C:\Face_recog_system - Copy\bg.jpg")
+        img_left=Image.open(r"EvoSense_login\\assets\\img\\bg.jpg")
         img_left=img_left.resize((1300, 700), Image.ADAPTIVE) 
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -221,7 +221,7 @@ class Student:
         Right_frame = LabelFrame(main_frame, bd=2, bg="white", relief=RIDGE, text="Student Record", font=("times new roman", 13, "bold"))
         Right_frame.place(x=615, y=10, width=600, height=580)
 
-        img_right=Image.open(r"C:\Face_recog_system - Copy\bg.jpg")
+        img_right=Image.open(r"EvoSense_login\\assets\\img\\bg.jpg")
         img_right=img_right.resize((1300, 700), Image.ADAPTIVE) 
         self.photoimg_right=ImageTk.PhotoImage(img_right)
 
@@ -322,7 +322,7 @@ class Student:
             messagebox.showerror("Error","All fields are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="*E@$y007",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="_Sudhanshu9.",database="face_recognizer")
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                 (
@@ -354,7 +354,7 @@ class Student:
 
     # -------------Fetch Data-----------
     def fetch_data(self):
-        conn=mysql.connector.connect(host="localhost",username="root",password="*E@$y007",database="face_recognizer")
+        conn=mysql.connector.connect(host="localhost",username="root",password="_Sudhanshu9.",database="face_recognizer")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from student")
         data=my_cursor.fetchall()
@@ -396,7 +396,7 @@ class Student:
             try:
                 Update=messagebox.askyesno("Update","Do you want to update student details?",parent=self.root)
                 if Update>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="*E@$y007",database="face_recognizer")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="_Sudhanshu9.",database="face_recognizer")
                     my_cursor=conn.cursor()
                     my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,DOB=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_ID=%s",
                     ( 
@@ -437,7 +437,7 @@ class Student:
             try:
                 delete=messagebox.askyesno("Delete","Do you want to delete student details?",parent=self.root)
                 if delete>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="*E@$y007",database="face_recognizer")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="_Sudhanshu9.",database="face_recognizer")
                     my_cursor=conn.cursor()
                     sql="delete from student where Student_ID=%s"
                     val=(self.var_std_id.get(),)
@@ -478,7 +478,7 @@ class Student:
             messagebox.showerror("Error","All fields are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="*E@$y007",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="_Sudhanshu9.",database="face_recognizer")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select * from student")
                 myresult=my_cursor.fetchall()
@@ -512,7 +512,7 @@ class Student:
 
                 # -------------- Load predifined data on face frontals from opencv -------------
 
-                face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+                face_classifier=cv2.CascadeClassifier("EvoSense_login\\haarcascade_frontalface_default.xml")
 
                 def face_cropped(img):
                     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)

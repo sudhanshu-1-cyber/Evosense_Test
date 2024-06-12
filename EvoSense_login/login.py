@@ -16,7 +16,7 @@ class Login_Window:
         self.root.title("Login")
         self.root.geometry("1530x790+0+0")
 
-        self.bg=ImageTk.PhotoImage(file=r"C:\Face_recog_system - Copy\bg.jpg")
+        self.bg=ImageTk.PhotoImage(file=r"EvoSense_login\\assets\\img\\bg.jpg")
         
         
         lbl_bg=Label(self.root,image=self.bg)  
@@ -31,7 +31,7 @@ class Login_Window:
         frame=Frame(self.root,bg="black")
         frame.place(x=480,y=140,width=340,height=450)
 
-        img1=Image.open(r"C:\Face_recog_system - Copy\robot.png")
+        img1=Image.open(r"EvoSense_login\\assets\\img\\robot.png")
         img1=img1.resize((100,100),Image.Resampling.LANCZOS)
         self.photoimage1=ImageTk.PhotoImage(img1)
         lblimg1=Label(image=self.photoimage1,bg="black",borderwidth=0)
@@ -55,13 +55,13 @@ class Login_Window:
 
         # ----------- Icon Images -----------
 
-        img2=Image.open(r"C:\Face_recog_system - Copy\user1.jpg")
+        img2=Image.open(r"EvoSense_login\\assets\\img\\user1.jpg")
         img2=img2.resize((25,25),Image.Resampling.LANCZOS)
         self.photoimage2=ImageTk.PhotoImage(img2)
         lblimg2=Label(frame,image=self.photoimage2,bg="black",borderwidth=0)
         lblimg2.place(x=40,y=150,width=25,height=25)
 
-        img3=Image.open(r"C:\Face_recog_system - Copy\lock-icon-vector-illustration.jpg")
+        img3=Image.open(r"EvoSense_login\\assets\\img\\lock-icon-vector-illustration.jpg")
         img3=img3.resize((25,25),Image.Resampling.LANCZOS)
         self.photoimage3=ImageTk.PhotoImage(img3)
         lblimg3=Label(frame,image=self.photoimage3,bg="black",borderwidth=0)
@@ -90,7 +90,7 @@ class Login_Window:
         elif self.txtuser.get()=="abc" and self.txtpass.get()=="xyz":
             messagebox.showinfo("Success","Welcome to Face Recognition System")
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="*E@$y007",database="face_recognizer")
+            conn=mysql.connector.connect(host="localhost",user="root",password="_Sudhanshu9.",database="face_recognizer")
             my_cursor=conn.cursor()
             my_cursor.execute("select * from register where email=%s and password=%s",
             (
@@ -120,7 +120,7 @@ class Login_Window:
         
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",user="root",password="*E@$y007",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",user="root",password="_Sudhanshu9.",database="face_recognizer")
                 my_cursor=conn.cursor()
                 query=("select * from register where email=%s and securityQ=%s and securityA=%s")
                 value=(self.txtuser.get(),self.combo_security_Q.get(),self.security_A_entry.get())
@@ -148,7 +148,7 @@ class Login_Window:
         if self.txtuser.get()=="":
             messagebox.showerror("Error","Please enter the email address to reset password")
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="*E@$y007",database="face_recognizer")
+            conn=mysql.connector.connect(host="localhost",user="root",password="_Sudhanshu9.",database="face_recognizer")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s")
             value=(self.txtuser.get(),)
@@ -207,7 +207,7 @@ class Register:
         self.var_confpass=StringVar()
 
         # -------- Background image ----
-        self.bg=ImageTk.PhotoImage(file=r"C:\Face_recog_system - Copy\bg.jpg")
+        self.bg=ImageTk.PhotoImage(file=r"EvoSense_login\\assets\\img\\bg.jpg")
         bg_lbl=Label(self.root,image=self.bg)
         bg_lbl.place(x=0,y=0,relwidth=1,relheight=1)
 
@@ -280,13 +280,13 @@ class Register:
         checkbtn.place(x=50,y=380)
 
         # --------- buttons --------
-        img=Image.open(r"C:\Face_recog_system - Copy\register.jpg")
+        img=Image.open(r"EvoSense_login\\assets\\img\\register.jpg")
         img=img.resize((200,70),Image.Resampling.LANCZOS)
         self.photoimage=ImageTk.PhotoImage(img)
         b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2")
         b1.place(x=50,y=420,width=200)
 
-        img1=Image.open(r"C:\Face_recog_system - Copy\login.jpg")
+        img1=Image.open(r"EvoSense_login\\assets\\img\\login.jpg")
         img1=img1.resize((200,70),Image.Resampling.LANCZOS)
         self.photoimage1=ImageTk.PhotoImage(img1)
         b1=Button(frame,image=self.photoimage1,command=self.return_login,borderwidth=0,cursor="hand2")
@@ -302,7 +302,7 @@ class Register:
         elif self.var_check.get()==0:
             messagebox.showerror("Error","Please agree to our Terms & Condition")
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="*E@$y007",database="face_recognizer")
+            conn=mysql.connector.connect(host="localhost",user="root",password="_Sudhanshu9.",database="face_recognizer")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s")
             value=(self.var_email.get(),)
