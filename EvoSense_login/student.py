@@ -294,7 +294,7 @@ class Student:
     # Train Data
 
     def train_classifier(self):
-        data_dir=("data")
+        data_dir=("EvoSense_login\\data")
         path=[os.path.join(data_dir,file) for file in os.listdir(data_dir)]
 
         faces=[]
