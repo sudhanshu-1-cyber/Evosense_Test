@@ -10,7 +10,6 @@ import os
 class Student:
     def __init__(self, root):       #root -  window name     
         self.root=root          #initialize self
-        self.root.geometry("1530x790+0+0") #set geometary of the window
         self.root.title("Facial Recognition System")
 
         # --------------Variables-----------------
@@ -36,10 +35,16 @@ class Student:
         self.photoimg=ImageTk.PhotoImage(img)
 
         bg_img=Label(self.root, image=self.photoimg)
-        bg_img.place(x=0, y=0, width=1300, height=700)
+        bg_img.place(x=0, y=0, relwidth=1, relheight=1)  # Use relwidth and relheight to scale with window size
 
         title_lbl=Label(bg_img, text="Student Details", font=("Times New Roman",28,"bold"),bg="black", fg="#74a7d2")
-        title_lbl.place(x=0, y=0, width=1300, height=45)
+        title_lbl.place(x=0, y=0, relwidth=1, height=45)  # Adjust width dynamically
+
+        # Dynamically calculate width and height based on background image size
+        window_width = img.width
+        window_height = img.height
+
+        self.root.geometry(f"{window_width}x{window_height}+0+0")
 
         main_frame=Frame(bg_img, bd = 2, bg = "white")
         main_frame.place(x=20, y=50, width=1225, height=620)

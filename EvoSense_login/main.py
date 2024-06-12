@@ -13,28 +13,31 @@ import subprocess
 
 
 class Facial_Recognition_System:
-    def __init__(self, root):  # root - window name
-        self.root = root  # initialize self
-        self.root.geometry("1530x790+0+0")  # set geometry of the window
+    def __init__(self, root):
+        self.root = root
         self.root.title("Facial Recognition System")
 
-        # Load and set the background image
+        # Load background image
         img = Image.open(r"EvoSense_login\\assets\\img\\bg.jpg")
-        img = img.resize((1300, 700), Image.LANCZOS)
+        self.img_width, self.img_height = img.size
+        img = img.resize((self.img_width, self.img_height), Image.LANCZOS)
         self.photoimg = ImageTk.PhotoImage(img)
 
+        # Set window geometry based on image size
+        self.root.geometry(f"{self.img_width}x{self.img_height}+0+0")
+
         bg_img = Label(self.root, image=self.photoimg)
-        bg_img.place(x=0, y=0, width=1300, height=700)
+        bg_img.place(x=0, y=0, width=self.img_width, height=self.img_height)
 
         # Load and play the background video
         bg_vid = Label(self.root)
         bg_vid.pack()
-        player = tkvideo("EvoSense_login\\assets\\video\\tech_bg_vid.mp4", bg_vid, loop=1, size=(1300, 700))
+        player = tkvideo("EvoSense_login\\assets\\video\\tech_bg_vid.mp4", bg_vid, loop=1, size=(self.img_width, self.img_height))
         player.play()
-        
+
         # Title Label
         title_lbl = Label(self.root, text="Facial Recognition", font=("Times New Roman", 35, "bold"), bg="black", fg="#74a7d2")
-        title_lbl.place(x=0, y=0, width=1300, height=60)
+        title_lbl.place(x=0, y=0, width=self.img_width, height=60)
 
         # Student button
         img2 = Image.open(r"EvoSense_login\\assets\\img\\student_button.jpg")
